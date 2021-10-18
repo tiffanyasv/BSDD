@@ -1,4 +1,10 @@
-<u>**Cours base de données**</u>
+**Cours_de_BDD_**
 
-blabla
+> rapport de toutes les requêtes émisses et effectuer un commit à chaque fois.
+
+git commit -a -m "nom" en ouvrant gitbash dans le fichier mysql puis git push
+
+**Première requête :**
+
+Exemple de l'avion : SELECT = *; From = Avions
 
