@@ -15,3 +15,34 @@ Exemple de l'avion : SELECT = *; From = Avions
 Select : ce qu'on souhaite afficher (* = pour tous les champs)
 From : où
 
+%toto = toutes les chaînes de caractères qui se terminent par "toto"
+% to % = toutes les chaîne de caractères qui contiennent "to"
+__%to = tout ce qui se termine par "to" avec au minimum 2 chaînes de caractères avant.
+_toto = 
+
+--> permet des comparaisons de chaînes
+
+> En SQL, la virgule est le séparateur
+
+**Les jointures** 
+
+Associer l'enregistrement des vols avec l'enregistrement des avions :
+
+```sql
+SELECT * 
+FROM `Vols`
+INNER JOIN Avions;
+```
+
+Dès qu'on met un INNER JOIN on doit mettre derrière un ON
+
+```sql
+SELECT * 
+FROM `Vols`
+INNER JOIN Avions
+ON Vols.numAvion=Avions.numAvion;
+```
+
+Cela permet à ce que la requête soit claire et comprise. Et évite que la base de données de fait des siennes.
+
+Pour dire quel caractère on parle : "."
