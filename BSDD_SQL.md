@@ -15,3 +15,4 @@ Exemple de l'avion : SELECT = *; From = Avions
 Select : ce qu'on souhaite afficher (* = pour tous les champs)
 From : où
 
+le "." permet de faire la séparation 
