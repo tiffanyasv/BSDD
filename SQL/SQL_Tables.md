@@ -67,3 +67,22 @@ Intégrité référentielles : vérifier si une valeur donnée à un champ dans 
 - mécanisme de protection de la base
 
 SHOW CREATE TABLE : permet de voir la commande qui aurait pu servir (recréer la commande qui aurait pu créer la table)
+
+## Suppression d'une BDD
+
+------
+
+DROP DATABASE
+
+## Modification 
+
+------
+
+ALTER TABLE : on peut ajouter, modifier, renommer, déplacer un champs, une table.
+
+------
+
+Engine : type de table (lecture, écriture,...)
+
+> VOIR LES DOCUMENTS 
+
