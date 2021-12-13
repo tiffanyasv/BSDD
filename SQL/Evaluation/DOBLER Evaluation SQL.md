@@ -128,6 +128,7 @@ VALUES (10,17,2013.10.01,2013.11.01);
 
 ```sql
 DELETE
-FROM E
+FROM Emprunter
+WHERE numLecteur = 10;
 ```
 
