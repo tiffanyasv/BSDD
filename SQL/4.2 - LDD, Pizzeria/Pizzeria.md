@@ -172,11 +172,37 @@ WHERE Ingredients.nomIngredient LIKE "Choriso"
 OR (Ingredients.nomIngredient LIKE "olives%");
 ```
 
+![image-20220110110813350](C:\Users\Tiffany Dobler\AppData\Roaming\Typora\typora-user-images\image-20220110110813350.png)
+
 **R9** : *« Quel est le nom et prénom de l’employé qui a traité la commande 3 ? »*
+
+```sql
+SELECT nomEmploye, prenomEmploye
+FROM `Employes`
+INNER JOIN Commandes
+ON Employes.idEmploye=Commandes.idEmploye
+WHERE Commandes.idCommande = 3;
+```
 
 **R10** : *« Quels sont les noms des employés ayant livré les commandes du 23 juin 2011 ? »*
 
-**R11** : *« Quels sont le ou les employés qui gagnent le plus ? »*
+```sql
+SELECT DISTINCT nomEmploye 
+FROM `Commandes`
+INNER JOIN Employes
+ON Commandes.idEmploye=Employes.idEmploye
+WHERE Commandes.dateCommande LIKE "2011-06-23" 
+AND Commandes.heureLivraison IS NOT NULL;
+```
+
+**R11** : *« Quels sont le ou les employés qui gagnent le plus ? »*  Ce type de requête (MAX réduit à une seule ligne) demande une requête imbriquée.
+
+```sql
+SELECT nomEmploye
+FROM Employes
+WHERE salaireMensuel = (SELECT MAX(salaireMensuel)
+                        FROM Employes);
+```
 
 **R12** : *« Quels sont, sans doublon, les ingrédients contenus dans les pizzas de la commande 2 ? »*
 
