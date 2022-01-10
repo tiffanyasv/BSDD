@@ -103,7 +103,7 @@ ORDER BY prixVentePizza DESC;
 ```sql
 SELECT nomEmploye, prenomEmploye
 FROM Employes
-WHERE salaire BETWEEN 1200 AND 1300;
+WHERE salairemensuel BETWEEN 1200 AND 1300;
 ```
 
 **R4** : *« Quel est l'identifiant des commandes passées courant de l’année 2011, entre 15h et 16h de l’après midi, qui n’ont pas été livrées par l’employé numéro 1 ? »*
