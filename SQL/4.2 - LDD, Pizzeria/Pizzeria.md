@@ -83,9 +83,28 @@ Deux pizzas sont proposées, d'autres pourront être ajoutées.
 
 **R1** : *« Quelle est la liste des nom et prix de chaque pizza, triée par ordre de prix croissant ? »*
 
+```sql
+SELECT nomPizza, prixVentePizza
+From Pizzas
+ORDER BY prixVentePizza ASC; 
+```
+
 **R2** : *« Quel est le nom des pizzas qui coutent plus de 13€, triés par ordre décroissant du prix ? »*
 
+```sql
+SELECT nomPizza
+FROM Pizzas
+WHERE prixVentePizza > 13
+ORDER BY prixVentePizza DESC;
+```
+
 **R3** : *« Quelle est la liste de nom et prénom des employés qui gagnent entre 1 200 € et 1 300 € ? »*
+
+```sql
+SELECT nomEmploye, prenomEmploye
+FROM Employes
+WHERE salaire BETWEEN 1200 AND 1300;
+```
 
 **R4** : *« Quel est l'identifiant des commandes passées courant de l’année 2011, entre 15h et 16h de l’après midi, qui n’ont pas été livrées par l’employé numéro 1 ? »*
 
