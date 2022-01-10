@@ -236,10 +236,13 @@ WHERE Commandes.idCommande = 2;
 
 ![image-20220110115742572](C:\Users\Tiffany Dobler\AppData\Roaming\Typora\typora-user-images\image-20220110115742572.png)
 
-**R13** : *« Quels sont les ingrédients qui ne sont utilisés dans aucune pizza ? »*
+**R13** : *« Quels sont les ingrédients qui ne sont utilisés dans aucune pizza ? »* Il ne faut pas de INNER JOIN, le lien peut s'effectuer en faisant une requête imbriquée.
 
-```
-
+```sql
+SELECT nomIngredient
+FROM `Ingredients`
+WHERE idIngredient NOT IN (SELECT DISTINCT idIngredient
+                           FROM Compositions);
 ```
 
 
