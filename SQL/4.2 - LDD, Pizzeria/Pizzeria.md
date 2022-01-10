@@ -229,8 +229,12 @@ INNER JOIN LignesCommande
 ON Pizzas.idPizza = LignesCommande.idPizza
 INNER JOIN Commandes
 ON LignesCommande.idCommande = Commandes.idCommande
-WHERE Commandes.idCommande LIKE "2";
+WHERE Commandes.idCommande = 2;
 ```
+
+![image-20220110115459679](C:\Users\Tiffany Dobler\AppData\Roaming\Typora\typora-user-images\image-20220110115459679.png)
+
+![image-20220110115742572](C:\Users\Tiffany Dobler\AppData\Roaming\Typora\typora-user-images\image-20220110115742572.png)
 
 **R13** : *« Quels sont les ingrédients qui ne sont utilisés dans aucune pizza ? »*
 
