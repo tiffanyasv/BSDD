@@ -106,15 +106,71 @@ FROM Employes
 WHERE salairemensuel BETWEEN 1200 AND 1300;
 ```
 
-**R4** : *« Quel est l'identifiant des commandes passées courant de l’année 2011, entre 15h et 16h de l’après midi, qui n’ont pas été livrées par l’employé numéro 1 ? »*
+**R4** : *« Quel est l'identifiant des commandes passées courant de l’année 2011(**where year**), entre 15h et 16h de l’après midi, qui n’ont pas été livrées par l’employé numéro 1 ? »*
+
+```sql
+SELECT idCommande
+FROM `Commandes`
+WHERE YEAR (dateCommande) = 2011
+AND heureCommande BETWEEN "15:00:00" AND "16:00:00"
+AND idEmploye <> 1;
+```
+
+![image-20220110100201876](C:\Users\Tiffany Dobler\AppData\Roaming\Typora\typora-user-images\image-20220110100201876.png)
+
+![image-20220110100225237](C:\Users\Tiffany Dobler\AppData\Roaming\Typora\typora-user-images\image-20220110100225237.png)
 
 **R5** : *« Quel est le nom des ingrédients qui se terminent par la lettre « a » ? »*
 
+```sql
+SELECT nomIngredient
+FROM `Ingredients`
+WHERE nomIngredient LIKE "%a";
+```
+
 **R6** : *« Quelle est la liste des identifiants de pizzas qui contiennent au moins 100 g de champignons ou 100 g de chorizo ? »*
+
+```sql
+SELECT idPizza
+FROM `Compositions`
+INNER JOIN Ingredients
+ON Compositions.idIngredient=Ingredients.idIngredient
+WHERE (nomIngredient LIKE "Champignons" AND quantite >= 0.10)
+OR (nomIngredient LIKE "Chorizo" AND quantite >= 0.10);
+```
+
+Les autres possibilités :
+
+![image-20220110102206057](C:\Users\Tiffany Dobler\AppData\Roaming\Typora\typora-user-images\image-20220110102206057.png)
+
+![image-20220110102243142](C:\Users\Tiffany Dobler\AppData\Roaming\Typora\typora-user-images\image-20220110102243142.png)
+
+![image-20220110102325124](C:\Users\Tiffany Dobler\AppData\Roaming\Typora\typora-user-images\image-20220110102325124.png)
 
 **R7** : *« Quelle est la liste avec nom et quantité des ingrédients de la pizza 4 fromages ? »*
 
+```sql
+SELECT nomPizza, nomIngredient, quantite
+FROM `Ingredients`
+INNER JOIN Compositions
+ON Ingredients.idIngredient=Compositions.idIngredient
+INNER JOIN Pizzas
+ON Compositions.idPizza=Pizzas.idPizza
+WHERE Pizzas.nomPizza LIKE "4 fromages";
+```
+
 **R8** : *« Quels sont les noms des pizzas qui contiennent des olives ou du chorizo ? »*
+
+```sql
+SELECT nomPizza, nomIngredient
+FROM `Ingredients`
+INNER JOIN Compositions
+ON Ingredients.idIngredient=Compositions.idIngredient
+INNER JOIN Pizzas
+ON Compositions.idPizza=Pizzas.idPizza
+WHERE Ingredients.nomIngredient LIKE "Choriso" 
+OR (Ingredients.nomIngredient LIKE "olives%");
+```
 
 **R9** : *« Quel est le nom et prénom de l’employé qui a traité la commande 3 ? »*
 
