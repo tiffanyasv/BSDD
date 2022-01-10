@@ -206,7 +206,37 @@ WHERE salaireMensuel = (SELECT MAX(salaireMensuel)
 
 **R12** : *« Quels sont, sans doublon, les ingrédients contenus dans les pizzas de la commande 2 ? »*
 
+```sql
+SELECT DISTINCT (Ingredients.nomIngredient)
+FROM `Commandes`
+INNER JOIN LignesCommande
+ON Commandes.idCommande=LignesCommande.idCommande
+INNER JOIN Pizzas
+ON LignesCommande.idPizza=Pizzas.idPizza
+INNER JOIN Compositions
+ON Pizzas.idPizza=Compositions.idPizza
+INNER JOIN Ingredients
+ON Compositions.idIngredient=Ingredients.idIngredient
+WHERE LignesCommande.idcommande =2;
+ou
+SELECT DISTINCT nomIngredient
+FROM Ingredients
+INNER JOIN Compositions
+ON Ingredients.idIngredient = Compositions.idIngredient
+INNER JOIN Pizzas
+ON Compositions.idPizza = Pizzas.idPizza
+INNER JOIN LignesCommande
+ON Pizzas.idPizza = LignesCommande.idPizza
+INNER JOIN Commandes
+ON LignesCommande.idCommande = Commandes.idCommande
+WHERE Commandes.idCommande LIKE "2";
+```
+
 **R13** : *« Quels sont les ingrédients qui ne sont utilisés dans aucune pizza ? »*
+
+```
+
+```
 
 
 
